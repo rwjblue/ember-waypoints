@@ -1,3 +1,3 @@
 module.exports = {
-  name: 'ember-way-point'
+  name: 'ember-waypoints'
 }

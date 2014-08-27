@@ -1,4 +1,4 @@
-# Ember-way-point
+# Ember-waypoints
 
 This README outlines the details of collaborating on this Ember addon.
 
