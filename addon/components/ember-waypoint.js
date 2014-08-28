@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 var getProperties = Ember.getProperties;
 var bind = Ember.run.bind;
-var get = Ember.get;
 var on = Ember.on;
 
 export default Ember.Component.extend({
