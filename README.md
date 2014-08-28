@@ -70,3 +70,7 @@ and it will be used for waypoint being created:
 * `ember build`
 
 For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+
+## License
+
+This library is licensed under the MIT License.
