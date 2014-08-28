@@ -22,13 +22,13 @@ npm install --save-dev ember-waypoints
 
 ### Usage
 
-Simply use the `{{ember-waypoint}}` component in your template:
+Simply use the `{{waypoint}}` helper in your template:
 
 ```handlebars
-{{#ember-waypoint on-up="viewedScrollingUp"}}
+{{#waypoint on-up="viewedScrollingUp"}}
   <p>This text is always displayed, the wrapping component simply provides
      a way to interact with jquery-waypoints.</p>
-{{/ember-waypoint}}
+{{/waypoint}}
 ```
 
 ### Actions
