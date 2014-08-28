@@ -10,12 +10,18 @@ export default Ember.Component.extend({
   continuous: null,
   horizontal: null,
 
+  waypoint: function() {
+    var element = this.$();
+
+    element.waypoint.apply(element, arguments);
+  },
+
   setupWaypoint: on('didInsertElement', function() {
-    this.$().waypoint(this.buildOptions());
+    this.waypoint(this.buildOptions());
   }),
 
   teardownWaypoint: on('willDestroyElement', function() {
-    this.$().waypoint('destroy');
+    this.waypoint('destroy');
   }),
 
   buildOptions: function() {
