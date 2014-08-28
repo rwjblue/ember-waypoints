@@ -1,7 +1,7 @@
 # Ember Waypoints
 
-Ember Waypoints is an easy way to consume the [jQuery Waypoints](https://github.com/imakewebthings/jquery-waypoints)
-library within an Ember application.  It is initially published as an Ember CLI addon, but could have a standalone (aka globals based)
+Ember Waypoints is an easy way to consume the jQuery Waypoints library within an Ember application.
+It is initially published as an Ember CLI addon, but could have a standalone (aka globals based)
 if folks are interested.
 
 Resources and background on [jQuery Waypoints](https://github.com/imakewebthings/jquery-waypoints):
@@ -9,6 +9,10 @@ Resources and background on [jQuery Waypoints](https://github.com/imakewebthings
 * [Website](http://imakewebthings.com/jquery-waypoints/)
 * [Getting Started Guide](http://imakewebthings.com/jquery-waypoints/#get-started)
 * [API Documentation](http://imakewebthings.com/jquery-waypoints/#docs)
+
+## Status
+
+[![Build Status](https://travis-ci.org/rwjblue/ember-waypoints.svg?branch=master)](https://travis-ci.org/rwjblue/ember-waypoints)
 
 ## Using
 
