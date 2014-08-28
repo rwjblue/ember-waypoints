@@ -6,7 +6,7 @@
     "test": "test"
   },
   "scripts": {
-    "prepublish": "mkdir -p vendor/jquery-waypoints && cp bower_components/jquery-waypoints/waypoints.js vendor/jquery-waypoints/waypoints.js",
+    "prepublish": "rm -rf vendor/jquery-waypoints && cp -r bower_components/jquery-waypoints vendor/",
     "start": "ember server",
     "build": "ember build",
     "test": "ember test"
