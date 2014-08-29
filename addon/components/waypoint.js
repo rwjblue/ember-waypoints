@@ -5,6 +5,7 @@ var bind = Ember.run.bind;
 var on = Ember.on;
 
 export default Ember.Component.extend({
+  contextElement: null,
   offset: null,
   triggerOnce: null,
   continuous: null,
@@ -25,13 +26,18 @@ export default Ember.Component.extend({
   }),
 
   buildOptions: function() {
-    var options = getProperties(this, [ 'offset', 'triggerOnce', 'continuous', 'horizontal']);
+    var options = getProperties(this, [ 'contextElement', 'offset', 'triggerOnce', 'continuous', 'horizontal']);
     options.handler = bind(this, this.waypointTriggered);
 
     for (var option in options) {
       if (options[option] === null) {
         delete options[option];
       }
+    }
+
+    if (options.contextElement) {
+      options.context = options.contextElement;
+      delete options.contextElement;
     }
 
     return options;
