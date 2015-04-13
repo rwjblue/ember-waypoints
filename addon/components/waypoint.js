@@ -14,6 +14,8 @@ export default Ember.Component.extend({
   waypoint: function() {
     var element = this.$();
 
+    if (!element.waypoint) { return; }
+
     element.waypoint.apply(element, arguments);
   },
 
