@@ -1,6 +1,5 @@
 {
   "name": "ember-waypoints",
-
   "devDependencies": {
     "jquery-waypoints": "~2.0.5",
     "handlebars": "~1.3.0",
@@ -14,5 +13,8 @@
     "ember-qunit": "0.1.8",
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0"
+  },
+  "resolutions": {
+    "ember": "1.7.0"
   }
 }
