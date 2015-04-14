@@ -31,6 +31,7 @@
     "ember-cli-ic-ajax": "0.1.1",
     "ember-cli-inject-live-reload": "^1.0.2",
     "ember-cli-qunit": "0.1.0",
+    "ember-cli-release": "lytics/ember-cli-release#48d32a23aef0750e58892ada12b6da1ca221222c",
     "express": "^4.8.5",
     "glob": "^4.0.5"
   }
