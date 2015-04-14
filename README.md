@@ -51,6 +51,22 @@ and it will be used for waypoint being created:
 * `offset`
 * `continuous`
 
+### Unit testing components
+
+To unit test components that use the `waypoint` helper in their
+templates, you will have to import and invoke the registration helper in your test
+file:
+
+```javascript
+import registerWaypointHelpers from 'ember-waypoints/utils/register-helpers';
+
+registerWaypointHelpers();
+
+moduleForComponent('some-component', {
+  //code
+});
+```
+
 ## Development of ember-waypoints
 
 ### Installation
