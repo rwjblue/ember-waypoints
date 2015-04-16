@@ -21,7 +21,7 @@ if folks are interested.
 To install run the following:
 
 ```javascript
-npm install --save-dev ember-waypoints
+ember install ember-waypoints
 ```
 
 ### Usage
@@ -49,23 +49,34 @@ and it will be used for waypoint being created:
 * `horizontal`
 * `triggerOnce`
 * `offset`
+* `contextElementId` (in place of context)
 * `continuous`
+
+An example of using a way point with a context (where you want to have the way point be based upon a "container" div offset instead of the body offset):
+
+```handlebars
+<div id="container" style="height:100px; overflow-y:scroll;">
+  <div style="height:500px;">
+    {{#waypoint contextElementId="container" offset="50" on-up="scrollingUp" on-down="scrollingDown"}}
+      <div>
+        The thing that triggers the waypoint actions to be fired when it reaches the top of the $('#container') element + a 50 pixel offset.
+      </div>
+    {{/waypoint}}
+  </div>
+</div>
+```
 
 ### Unit testing components
 
 To unit test components that use the `waypoint` helper in their
-templates, you will have to import and invoke the registration helper in your test
-file:
+templates, make sure to add `integration:true` to your moduleForComponent:
 
 ```javascript
-import registerWaypointHelpers from 'ember-waypoints/utils/register-helpers';
-
-registerWaypointHelpers();
-
-moduleForComponent('some-component', {
-  //code
+moduleForComponent('my-component-that-includes-a-waypoint', {
+  integration: true
 });
 ```
+
 
 ## Development of ember-waypoints
 

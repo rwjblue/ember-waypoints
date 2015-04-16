@@ -4,6 +4,6 @@ module.exports = {
   normalizeEntityName: function() {}, // no-op since we're just adding dependencies
 
   afterInstall: function() {
-    return this.addBowerPackageToProject('jquery-waypoints');
+    return this.addBowerPackageToProject('jquery-waypoints', '~2.0.5');
   }
 };

@@ -7,6 +7,8 @@ module.exports = {
   included: function(app) {
     this._super.included(app);
 
-    app.import(app.bowerDirectory + '/jquery-waypoints/lib/jquery.waypoints.min.js');
+    if (!process.env.EMBER_CLI_FASTBOOT) {
+      app.import(app.bowerDirectory + '/jquery-waypoints/waypoints.min.js');
+    }
   }
 }
