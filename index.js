@@ -4,9 +4,9 @@ var path = require('path');
 module.exports = {
   name: 'ember-waypoints',
 
-  contentFor: function(type) {
-    if (type === 'vendor-suffix') {
-      return 'if (typeof(document) !== "undefined") {\n' + fs.readFileSync(path.join(__dirname, 'bower_components/jquery-waypoints/waypoints.js')) + '\n}';
-    }
+  included: function(app) {
+    this._super.included(app);
+
+    app.import(app.bowerDirectory + '/jquery-waypoints/lib/jquery.waypoints.min.js');
   }
 }
