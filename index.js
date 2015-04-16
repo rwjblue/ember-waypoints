@@ -6,7 +6,7 @@ module.exports = {
 
   contentFor: function(type) {
     if (type === 'vendor-suffix') {
-      return 'if (typeof(document) !== "undefined") {\n' + fs.readFileSync(path.join(__dirname, 'vendor/jquery-waypoints/waypoints.js')) + '\n}';
+      return 'if (typeof(document) !== "undefined") {\n' + fs.readFileSync(path.join(__dirname, 'bower_components/jquery-waypoints/waypoints.js')) + '\n}';
     }
   }
 }

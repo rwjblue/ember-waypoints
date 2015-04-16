@@ -7,92 +7,129 @@ moduleForComponent('waypoint', 'component:waypoint', {
   }
 });
 
-test('sets up waypoint after render', function() {
-  equal(Ember.$.waypoints().vertical.length, 0, 'precond - no waypoints exist');
+test('sets up waypoint after render', function(assert) {
+  assert.equal(Ember.$.waypoints().vertical.length, 0, 'precond - no waypoints exist');
 
-  this.append();
+  this.render();
 
-  equal(Ember.$.waypoints().vertical.length, 1, 'waypoint was created');
+  assert.equal(Ember.$.waypoints().vertical.length, 1, 'waypoint was created');
 });
 
-test('sets up horizontal waypoint after render', function() {
-  equal(Ember.$.waypoints().horizontal.length, 0, 'precond - no waypoints exist');
+test('sets up horizontal waypoint after render', function(assert) {
+  assert.equal(Ember.$.waypoints().horizontal.length, 0, 'precond - no waypoints exist');
 
   this.subject({
     horizontal: true
   });
 
-  this.append();
+  this.render();
 
-  equal(Ember.$.waypoints().horizontal.length, 1, 'waypoint was created');
+  assert.equal(Ember.$.waypoints().horizontal.length, 1, 'waypoint was created');
 });
 
-test('clears waypoint after teardown', function() {
-  this.append();
-  equal(Ember.$.waypoints().vertical.length, 1, 'precond - waypoint was created');
+test('clears waypoint after teardown', function(assert) {
+  this.render();
+  assert.equal(Ember.$.waypoints().vertical.length, 1, 'precond - waypoint was created');
 
   Ember.run(this.subject(), 'destroy');
-  equal(Ember.$.waypoints().vertical.length, 0, 'precond - no waypoints exist');
+  assert.equal(Ember.$.waypoints().vertical.length, 0, 'precond - no waypoints exist');
 });
 
-test('passes offset through to waypoints', function() {
+test('passes offset through to waypoints', function(assert) {
+  assert.expect(1);
+
   this.subject({
     waypoint: function(options) {
-      equal(options.offset, 200, 'offset is passed on');
+      if (options !== 'destroy') {
+        assert.equal(options.offset, 200, 'offset is passed on');
+      }
     },
     offset: 200
   });
 
-  this.append();
+  this.render();
 });
 
-test('passes horizontal through to waypoints', function() {
+test('passes horizontal through to waypoints', function(assert) {
+  assert.expect(1);
+
   this.subject({
     waypoint: function(options) {
-      equal(options.horizontal, true, 'horizontal is passed on');
+      if (options !== 'destroy') {
+        assert.equal(options.horizontal, true, 'horizontal is passed on');
+      }
     },
 
     horizontal: true
   });
 
-  this.append();
+  this.render();
 });
 
-test('passes triggerOnce through to waypoints', function() {
+test('passes triggerOnce through to waypoints', function(assert) {
+  assert.expect(1);
+
   this.subject({
     waypoint: function(options) {
-      equal(options.triggerOnce, true, 'triggerOnce is passed on');
+      if (options !== 'destroy') {
+        assert.equal(options.triggerOnce, true, 'triggerOnce is passed on');
+      }
     },
 
     triggerOnce: true
   });
 
-  this.append();
+  this.render();
 });
 
-test('passes continuous through to waypoints', function() {
+test('passes continuous through to waypoints', function(assert) {
+  assert.expect(1);
+
   this.subject({
     waypoint: function(options) {
-      equal(options.continuous, true, 'continuous is passed on');
+      if (options !== 'destroy') {
+        assert.equal(options.continuous, true, 'continuous is passed on');
+      }
     },
 
     continuous: true
   });
 
-  this.append();
+  this.render();
 });
 
-test('does not pass on defaulted (non-set) props', function() {
+test('passes contextElementId through to waypoints', function(assert) {
+  assert.expect(2);
+
   this.subject({
     waypoint: function(options) {
-      deepEqual(Ember.keys(options), ['handler'], 'only handler is present by default');
+      if (options !== 'destroy') {
+        assert.equal(options.context.id, 'ember-testing', 'context is a DOM node');
+        assert.equal(options.context.tagName, 'DIV', 'context is a DOM node');
+      }
+    },
+
+    contextElementId: 'ember-testing'
+  });
+
+  this.render();
+});
+
+test('does not pass on defaulted (non-set) props', function(assert) {
+  assert.expect(1);
+
+  this.subject({
+    waypoint: function(options) {
+      if (options !== 'destroy') {
+        assert.deepEqual(Ember.keys(options), ['handler'], 'only handler is present by default');
+      }
     }
   });
 
-  this.append();
+  this.render();
 });
 
-test('sends actions when handler is called', function() {
+test('sends actions when handler is called', function(assert) {
   var handler;
   var triggeredActions = [];
 
@@ -106,12 +143,12 @@ test('sends actions when handler is called', function() {
     }
   });
 
-  this.append();
+  this.render();
 
   handler('up');
-  deepEqual(triggeredActions, ['on-up', 'action'], 'actions are triggered');
+  assert.deepEqual(triggeredActions, ['on-up', 'action'], 'actions are triggered');
 
   triggeredActions = [];
   handler('down');
-  deepEqual(triggeredActions, ['on-down', 'action'], 'actions are triggered');
+  assert.deepEqual(triggeredActions, ['on-down', 'action'], 'actions are triggered');
 });

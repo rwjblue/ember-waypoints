@@ -3,6 +3,7 @@ import Ember from 'ember';
 var getProperties = Ember.getProperties;
 var bind = Ember.run.bind;
 var on = Ember.on;
+var isNone = Ember.isNone;
 
 export default Ember.Component.extend({
   contextElement: null,
@@ -28,19 +29,16 @@ export default Ember.Component.extend({
   }),
 
   buildOptions: function() {
-    var options = getProperties(this, [ 'contextElementId', 'contextElement', 'offset', 'triggerOnce', 'continuous', 'horizontal']);
+    var options = getProperties(this, [ 'contextElementId', 'offset', 'triggerOnce', 'continuous', 'horizontal']);
     options.handler = bind(this, this.waypointTriggered);
 
     for (var option in options) {
-      if (options[option] === null) {
+      if (isNone(options[option])) {
         delete options[option];
       }
     }
 
-    if (options.contextElement) {
-      options.context = options.contextElement;
-      delete options.contextElement;
-    } else if (options.contextElementId) {
+    if (options.contextElementId) {
       options.context = document.getElementById(options.contextElementId);
       delete options.contextElementId;
     }
