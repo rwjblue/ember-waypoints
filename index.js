@@ -4,11 +4,9 @@ var path = require('path');
 module.exports = {
   name: 'ember-waypoints',
 
-  included: function(app) {
-    this._super.included(app);
-
-    if (!process.env.EMBER_CLI_FASTBOOT) {
-      app.import(app.bowerDirectory + '/jquery-waypoints/waypoints.min.js');
+  contentFor: function(type) {
+    if (type === 'vendor-suffix') {
+      return 'if (typeof(document) !== "undefined") {\n' + fs.readFileSync(path.join(this.project.bowerDirectory + '/jquery-waypoints/waypoints.js')) + '\n}';
     }
   }
 }
