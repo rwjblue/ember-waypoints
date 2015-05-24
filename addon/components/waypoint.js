@@ -13,6 +13,10 @@ export default Ember.Component.extend({
   horizontal: null,
 
   waypoint: function() {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     var element = this.$();
 
     if (!element.waypoint) { return; }
