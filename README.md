@@ -41,6 +41,27 @@ Simply use the `{{waypoint}}` helper in your template:
 * `on-down` -- This is fired when a waypoint is viewed while scrolling `down`. Receives the component instance as an argument.
 * `action` -- This is fired when a waypoitn is viewed in either direction. Receives the direction (`"down"` or `"up"`) and the component instance.
 
+You can pass arguments to the fired action by using Ember's [closure actions](http://emberjs.com/blog/2015/06/12/ember-1-13-0-released.html#toc_closure-actions). The closure action arguments will proceed the arguments passed in by ember-waypoints:
+
+```handlebars
+{{#each pages as |page|}}
+  {{#waypoint action=(action "setCurrentPage" page)}}
+    <div>
+      Using a closure action allows you to pass addional arguments to the action
+    </div>
+  {{/waypoint}}
+{{/each}}
+```
+
+```javascript
+actions: {
+  setCurrentPage(page, direction) {
+    // arguments provided by the closure action are passed in first
+    // followed by arguments provided by ember-waypoints
+  }
+}
+```
+
 ### Configuration Options
 
 The majority of the jquery-waypoints configuration API is available for use.  Simply provide one of the following options
