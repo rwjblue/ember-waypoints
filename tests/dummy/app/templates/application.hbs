@@ -3,7 +3,7 @@
 <p>Currently firedActions:</p>
 
 <ul>
-  {{#each action in Dummy.firedActions}}
+  {{#each Dummy.firedActions as |action|}}
     <li>{{action.action}} - {{action.id}}</li>
   {{/each}}
 </ul>

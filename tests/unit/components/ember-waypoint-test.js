@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('waypoint', 'component:waypoint', {
+moduleForComponent('way-point', 'component:way-point', {
   teardown: function() {
     Ember.$.waypoints('destroy');
   }
