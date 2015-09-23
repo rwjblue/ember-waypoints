@@ -29,10 +29,10 @@ ember install ember-waypoints
 Simply use the `{{waypoint}}` helper in your template:
 
 ```handlebars
-{{#waypoint on-up="viewedScrollingUp"}}
+{{#way-point on-up="viewedScrollingUp"}}
   <p>This text is always displayed, the wrapping component simply provides
      a way to interact with jquery-waypoints.</p>
-{{/waypoint}}
+{{/way-point}}
 ```
 
 ### Actions
@@ -45,11 +45,11 @@ You can pass arguments to the fired action by using Ember's [closure actions](ht
 
 ```handlebars
 {{#each pages as |page|}}
-  {{#waypoint action=(action "setCurrentPage" page)}}
+  {{#way-point action=(action "setCurrentPage" page)}}
     <div>
       Using a closure action allows you to pass addional arguments to the action
     </div>
-  {{/waypoint}}
+  {{/way-point}}
 {{/each}}
 ```
 
@@ -78,11 +78,11 @@ An example of using a way point with a context (where you want to have the way p
 ```handlebars
 <div id="container" style="height:100px; overflow-y:scroll;">
   <div style="height:500px;">
-    {{#waypoint contextElementId="container" offset="50" on-up="scrollingUp" on-down="scrollingDown"}}
+    {{#way-point contextElementId="container" offset="50" on-up="scrollingUp" on-down="scrollingDown"}}
       <div>
         The thing that triggers the waypoint actions to be fired when it reaches the top of the $('#container') element + a 50 pixel offset.
       </div>
-    {{/waypoint}}
+    {{/way-point}}
   </div>
 </div>
 ```
