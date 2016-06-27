@@ -26,7 +26,7 @@ ember install ember-waypoints
 
 ### Usage
 
-Simply use the `{{waypoint}}` helper in your template:
+Use the `{{way-point}}` helper in your template:
 
 ```handlebars
 {{#way-point on-up="viewedScrollingUp"}}
