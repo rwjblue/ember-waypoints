@@ -30,10 +30,11 @@ test('sets up horizontal waypoint after render', function(assert) {
 });
 
 test('clears waypoint after teardown', function(assert) {
-  this.render(hbs`{{way-point}}`);
+  this.set('showComponent', true);
+  this.render(hbs`{{#if showComponent}}{{way-point}}{{/if}}`);
   assert.equal(Ember.$.waypoints().vertical.length, 1, 'precond - waypoint was created');
 
-  Ember.run(this, 'destroy');
+  this.set('showComponent', false);
   assert.equal(Ember.$.waypoints().vertical.length, 0, 'precond - no waypoints exist');
 });
 
