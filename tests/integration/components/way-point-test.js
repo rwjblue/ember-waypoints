@@ -5,7 +5,7 @@ import hbs from 'htmlbars-inline-precompile';
 moduleForComponent('way-point', 'Integration | Component | ember waypoint', {
   integration: true,
 
-  afterEach() {
+  teardown() {
     Ember.$.waypoints('destroy');
   }
 
